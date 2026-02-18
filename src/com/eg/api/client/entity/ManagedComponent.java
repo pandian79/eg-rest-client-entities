@@ -53,6 +53,9 @@ public class ManagedComponent {
     }
 
     public void setPort(String port) {
+    	if (port!=null && port.equalsIgnoreCase("-")) {
+    		return;	
+		}
         this.port = port;
     }
 
@@ -70,6 +73,17 @@ public class ManagedComponent {
 
     public void setInternalAgent(String internalAgent) {
         this.internalAgent = internalAgent;
+    }
+    
+    public String getComponentNameWithOrWithoutPort() {
+		if (port!=null && !port.equalsIgnoreCase("-")&& !port.equalsIgnoreCase("NULL")) {
+			return componentName + ":" + port;
+		}
+		return componentName;
+	}
+    
+    public String getComponentNameWithPort() {
+    	return componentName + ":" + port;
     }
 
     @Override
