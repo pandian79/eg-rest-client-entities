@@ -1,14 +1,20 @@
 package com.eg.api.client.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class AlarmHistoryRecord {
 	String priority;
 	String layer;
+	//Fixing #22 UnrecognizedPropertyException: Unrecognized field "displayer" in 7.5.4 manager's API response
+	String displayer;
 	String measure;
 	String componentType;
 	String componentName;
 	String service;
 	String test;
 	String description;
+	@JsonProperty("ZoneName")
+	String zoneName;
 	String startTime;
 	String duration;
 	String info;
@@ -25,6 +31,12 @@ public class AlarmHistoryRecord {
 	}
 	public void setLayer(String layer) {
 		this.layer = layer;
+	}
+	public String getDisplayer() {
+		return displayer;
+	}
+	public void setDisplayer(String displayer) {
+		this.displayer = displayer;
 	}
 	public String getMeasure() {
 		return measure;
@@ -61,6 +73,12 @@ public class AlarmHistoryRecord {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public String getZoneName() {
+		return zoneName;
+	}
+	public void setZoneName(String zoneName) {
+		this.zoneName = zoneName;
 	}
 	public String getStartTime() {
 		return startTime;
